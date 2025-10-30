@@ -1,0 +1,312 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+@font-face {
+  font-family: "LINESeedKR";
+  src: url("/fonts/LINESeedKR-Hv.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LINESeedKR";
+  src: url("/fonts/LINESeedKR-Bd.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LINESeedKR";
+  src: url("/fonts/LINESeedKR-Rg.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LINESeedKR";
+  src: url("/fonts/LINESeedKR-Th.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard/Pretendard-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kakao';
+  src: url('/fonts/KakaoLight.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  /* ✅ swap 대신 block → 블링크 방지 */
+}
+
+@font-face {
+  font-family: 'Kakao';
+  src: url('/fonts/KakaoRegular.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  /* ✅ swap 대신 block → 블링크 방지 */
+}
+
+@font-face {
+  font-family: 'Kakao';
+  src: url('/fonts/KakaoBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Kakao Small Sans';
+  src: url('/fonts/KakaoSmallSans-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+  /* ✅ swap 대신 block → 블링크 방지 */
+}
+
+@font-face {
+  font-family: 'Kakao Unified';
+  src: url('/fonts/KakaoSmallSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  /* ✅ swap 대신 block → 블링크 방지 */
+}
+
+@font-face {
+  font-family: 'Kakao Small Sans';
+  src: url('/fonts/KakaoSmallSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Kakao Big Sans';
+  src: url('/fonts/KakaoBigSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  /* ✅ swap 대신 block → 블링크 방지 */
+}
+
+@font-face {
+  font-family: 'Kakao Big Sans';
+  src: url('/fonts/KakaoBigSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  /* ✅ swap 대신 block → 블링크 방지 */
+}
+
+@font-face {
+  font-family: 'Kakao Big Sans';
+  src: url('/fonts/KakaoBigSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: block;
+}
+/* -----------------------------
+   Noto Sans KR (woff2 → woff → otf)
+   ----------------------------- */
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/NotoSansKR-Thin.woff2') format('woff2'),
+       url('/fonts/NotoSansKR-Thin.woff') format('woff'),
+       url('/fonts/NotoSansKR-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/NotoSansKR-Light.woff2') format('woff2'),
+       url('/fonts/NotoSansKR-Light.woff') format('woff'),
+       url('/fonts/NotoSansKR-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/NotoSansKR-DemiLight.woff2') format('woff2'),
+       url('/fonts/NotoSansKR-DemiLight.woff') format('woff'),
+       url('/fonts/NotoSansKR-DemiLight.otf') format('opentype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/NotoSansKR-Regular.woff2') format('woff2'),
+       url('/fonts/NotoSansKR-Regular.woff') format('woff'),
+       url('/fonts/NotoSansKR-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/NotoSansKR-Medium.woff2') format('woff2'),
+       url('/fonts/NotoSansKR-Medium.woff') format('woff'),
+       url('/fonts/NotoSansKR-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/NotoSansKR-Bold.woff2') format('woff2'),
+       url('/fonts/NotoSansKR-Bold.woff') format('woff'),
+       url('/fonts/NotoSansKR-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('/fonts/NotoSansKR-Black.woff2') format('woff2'),
+       url('/fonts/NotoSansKR-Black.woff') format('woff'),
+       url('/fonts/NotoSansKR-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 
+body {
+  color: #263238;
+  font-family: "LINESeedKR", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+
+@media (max-width: 575px) {
+  * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+textarea,
+input {
+  -webkit-touch-callout: initial !important;
+  -webkit-user-select: initial !important;
+  -khtml-user-select: initial !important;
+  -moz-user-select: initial !important;
+  -ms-user-select: initial !important;
+  user-select: initial !important;
+}
+
+:root {
+  --sait: var(--android-safe-area-inset-top, env(safe-area-inset-top));
+  --saib: var(--android-safe-area-inset-bottom, env(safe-area-inset-bottom));
+  --sail: var(--android-safe-area-inset-left, env(safe-area-inset-left));
+  --sair: var(--android-safe-area-inset-right, env(safe-area-inset-right));
+}
+
+body,
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+button:disabled,
+input:disabled {
+  cursor: not-allowed;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ptr {
+  overflow: visible !important;
+}
+
+.ptr__pull-down--pull-more>div,
+.ptr__pull-down--pull-more>div>p {
+  display: none;
+}
+
+.MuiMenuItem-root {
+  font-family: "LINESeedKR !important";
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+.MuiPopover-root .count {
+  display: none;
+}
+
+.react-swipeable-view-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.react-swipeable-view-container>div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.MuiDialog-root.MuiModal-root {
+  z-index: 999999;
+} */
