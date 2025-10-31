@@ -1,12 +1,11 @@
-import { Box, SxProps } from "@mui/material";
+import { Box } from "@mui/material";
 
-export default function Layout({ children, sx }: { children: React.ReactNode, sx?: SxProps }) {
+export default function Layout({ children }: { children?: any }) {
     return (
         <Box sx={{
             position: 'relative',
-            minWidth: 800,
-            maxWidth: 1200,
-            px: 3,
+            minWidth: 1280,
+            maxWidth: 1280,
             mx: "auto",
             '@media (max-width: 768px)': {
                 width: '100%',
@@ -15,11 +14,7 @@ export default function Layout({ children, sx }: { children: React.ReactNode, sx
                 mx: "initial",
             },
         }}>
-            <Box sx={{
-                ...sx,
-            }}>
-                {children}
-            </Box>
+            {children}
         </Box>
     );
 }

@@ -691,8 +691,8 @@
     "post_date":"2025년 10월 27일(월) 08:34",
     "news_url":"https:\/\/www.news1.kr\/bio\/pharmaceutical-bio\/5952981",
     "demand":[
-      "의료진",
-      "환자"
+      "의료기관",
+      "소비자(환자)"
     ],
     "type":"기업",
     "domain":"헬스케어 IT",
@@ -1016,7 +1016,7 @@
     "news_url":"https:\/\/v.daum.net\/v\/20251022164802156",
     "demand":[
       "의료기관",
-      "의료진"
+      "의료기관"
     ],
     "type":"산업\/시장동향",
     "domain":"디지털헬스케어",
@@ -4285,7 +4285,7 @@
     "news_url":"https:\/\/www.dailymedi.com\/news\/news_view.php?wr_id=929339",
     "demand":[
       "의료기관",
-      "환자"
+      "소비자(환자)"
     ],
     "type":"산업\/시장동향",
     "domain":"민간기업",
@@ -7296,7 +7296,7 @@
     "news_url":"https:\/\/www.news1.kr\/bio\/pharmaceutical-bio\/5905137",
     "demand":[
       "의료기관",
-      "환자"
+      "소비자(환자)"
     ],
     "type":"연구\/임상\/성과",
     "domain":"국내",
@@ -8102,7 +8102,7 @@
     "news_url":"https:\/\/www.news1.kr\/bio\/welfare-medical\/5897849",
     "demand":[
       "의료기관",
-      "환자"
+      "소비자(환자)"
     ],
     "type":"정책\/제도\/규제",
     "domain":"의료기관",
@@ -8334,7 +8334,7 @@
       "의사",
       "간호사",
       "가족",
-      "환자"
+      "소비자(환자)"
     ],
     "region":"글로벌",
     "category":"산업\/시장동향",
@@ -10096,7 +10096,7 @@
     "demand":[
       "의료기관",
       "연구기관\/공공",
-      "환자"
+      "소비자(환자)"
     ],
     "type":"산업\/시장동향",
     "domain":"헬스케어",
@@ -13751,7 +13751,7 @@
     "post_date":"2025년 7월 25일(금) 08:35",
     "news_url":"https:\/\/www.news1.kr\/bio\/pharmaceutical-bio\/5857980",
     "demand":[
-      "환자"
+      "소비자(환자)"
     ],
     "type":"연구\/임상\/성과",
     "domain":"글로벌",

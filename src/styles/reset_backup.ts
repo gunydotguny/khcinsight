@@ -259,7 +259,7 @@ const reset = css`
     letter-spacing: -0.4px
   }
   * {
-    // box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(18, 18, 18, 0) !important;
     /* font-family: "Spoqa Han Sans Neo", "Spoqa Han Sans JP", sans-serif !important; */
     /* font-family: "Spoqa Han Sans Neo", "Spoqa Han Sans JP", sans-serif !important; */

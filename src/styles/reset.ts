@@ -35,7 +35,6 @@ body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,select
 body,html {
   color: #000;
   height: 100%;
-  height: 100vh;
   min-height: 100%
 }
 
@@ -175,6 +174,7 @@ input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-sea
     --sar: var(--sair);
     --sab: var(--saib);
     --sal: var(--sail);
+    overflow: auto
   }
 `;
 

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default function PageHeader({ title, children }: { title: React.ReactNode, children?: React.ReactNode }) {
+export default function User() {
     const router = useRouter();
     const { data: session, status } = useSession();
     const loading = status === "loading";
@@ -22,40 +22,13 @@ export default function PageHeader({ title, children }: { title: React.ReactNode
         console.log("로그아웃 실행");
         signOut({ callbackUrl: "/auth/login" })
     };
-    return <Box sx={{
-        py: 3,
-        mx: 3,
-        '@media (max-width: 768px)': {
-            mx: 0,
-            px: 2,
-            py: 2
-        },
-        display: 'flex',
-    }}>
-        <Typography sx={{
-            fontSize: 24,
-            lineHeight: '32px',
-            fontWeight: 700,
-        }}>
-            {title}
-        </Typography>
-        <Box sx={{
-            px: 3,
-        }}>
-            {children}
-        </Box>
-        {/* 유저프로필 */}
+    return <>
         <ButtonBase
             disableRipple
             onClick={handleOpenMenu}
             sx={{
-                display: 'none',
                 alignItems: 'center',
                 gap: 1,
-                '@media (max-width: 768px)': {
-                    display: 'flex'
-                },
-                ml: 'auto',
             }}>
             {/* 썸네일 */}
             <Box
@@ -98,7 +71,11 @@ export default function PageHeader({ title, children }: { title: React.ReactNode
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             sx={{
                 '.MuiPaper-root': {
-                    borderRadius: 1
+                    borderRadius: 1,
+                    '& .MuiList-root': {
+                        pt: 0,
+                        pb: 0,
+                    }
                 }
             }}
         >
@@ -108,5 +85,5 @@ export default function PageHeader({ title, children }: { title: React.ReactNode
                 <Typography color="error">로그아웃</Typography>
             </MenuItem>
         </Menu>
-    </Box>
+    </>
 }

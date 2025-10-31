@@ -6,7 +6,7 @@ import {
 import { TREND_CATEGORY_COLOR_MAP } from "../../constants/categories";
 
 export default function Badge({ category }: { category: string }) {
-    const color = TREND_CATEGORY_COLOR_MAP[category] || grey[200];
+    const color = TREND_CATEGORY_COLOR_MAP[category] || grey[300];
 
     return (
         <Box

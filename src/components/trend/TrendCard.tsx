@@ -1,5 +1,5 @@
 import { Box, ButtonBase, Typography } from "@mui/material";
-import { amber, blue, grey, purple } from "@mui/material/colors";
+import { orange, blue, grey, purple } from "@mui/material/colors";
 import { useRouter } from "next/router";
 import Badge from "../common/Badge";
 import Image from "next/image";
@@ -112,7 +112,7 @@ export default function TrendCard({ item }: { item: any }) {
                     flex: 1,
                     justifyContent: 'center',
                     py: 1.5,
-                    bgcolor: amber[500]
+                    bgcolor: orange[500]
                 }}
                 onClick={() => {
                     if (item.source_url) {
