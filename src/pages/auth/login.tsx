@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Button, Box, Typography } from "@mui/material";
 import Image from "next/image";
+import InAppGuard from "@/src/components/common/InAppGuard";
 
 export default function LoginPage() {
     const router = useRouter();
@@ -17,113 +18,130 @@ export default function LoginPage() {
         });
     }, [router]);
 
-    const handleGoogleLogin = async () => {
-        if (isSigningIn) return; // ✅ 중복 클릭 방지
+    const handleGoogleLogin = () => {
+        if (isSigningIn) return;
         setIsSigningIn(true);
 
-        try {
-            // signIn()은 기본적으로 새 창을 띄우거나 리다이렉트 발생
-            const result = await signIn("google", { callbackUrl, redirect: true });
-            // redirect:true이면 여기서 이후 코드 실행 안됨
-            // redirect:false 옵션을 줄 수도 있음
-            if (result?.error) throw new Error(result.error);
-        } catch (err) {
-            console.error("로그인 실패:", err);
-            setIsSigningIn(false); // ✅ 실패 시 다시 활성화
+        const ua = navigator.userAgent.toLowerCase();
+        const isInApp =
+            /kakaotalk|instagram|fbav|line|naver|daum|whale/i.test(ua);
+        const isAndroid = /android/i.test(ua);
+        const isIOS = /iphone|ipad|ipod/i.test(ua);
+
+        if (isInApp) {
+            // ✅ 인앱 브라우저 감지 시 안내 문구 표시
+            alert(
+                "인앱 브라우저에서는 로그인이 원활하지 않습니다.\nSafari 또는 Chrome으로 다시 열어주세요."
+            );
+            if (isAndroid) {
+                window.location.href =
+                    "intent://" +
+                    window.location.host +
+                    "/auth/login#Intent;scheme=https;package=com.android.chrome;end";
+            } else if (isIOS) {
+                window.location.href = "https://" + window.location.host + "/auth/login";
+            }
+            setIsSigningIn(false);
+            return;
         }
+
+        // ✅ 일반 브라우저 로그인
+        signIn("google", { callbackUrl: "/home" });
     };
 
     return (
-        <Box
-            sx={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#FFCA00",
-            }}
-        >
+        <InAppGuard>
             <Box
                 sx={{
-                    width: "100%",
-                    maxWidth: "400px",
-                    p: 2,
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
                     display: "flex",
-                    flexDirection: "column",
                     alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "#FFCA00",
                 }}
             >
-                <Typography
+                <Box
                     sx={{
-                        textAlign: "center",
-                        fontSize: 16,
-                        fontWeight: 700,
-                        fontFamily: `'Kakao', 'Pretendard', sans-serif`,
+                        width: "100%",
+                        maxWidth: "400px",
+                        p: 2,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
                     }}
                 >
-                    매일 5분 살펴보는 데일리 동향
-                </Typography>
-                <Typography
-                    sx={{
-                        textAlign: "center",
-                        fontSize: 40,
-                        lineHeight: "48px",
-                        fontWeight: 700,
-                        fontFamily: `'Kakao', 'Pretendard', sans-serif`,
-                        mb: 3,
-                        "& span": {
-                            fontWeight: 400,
-                        },
-                    }}
-                >
-                    KHC <span>INSIGHT</span>
-                </Typography>
-                <Button
-                    fullWidth
-                    variant="outlined"
-                    color="secondary"
-                    startIcon={
-                        <Box
-                            sx={{
-                                width: 24,
-                                height: 24,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                            }}
-                        >
-                            <Image
-                                src="https://developers.google.com/identity/images/g-logo.png"
-                                alt="Google logo"
-                                width={18}
-                                height={18}
-                            />
-                        </Box>
-                    }
-                    sx={{
-                        bgcolor: "#ffffff",
-                        pointerEvents: isSigningIn ? "none" : "auto", // 클릭 막기
-                        opacity: isSigningIn ? 0.6 : 1,
-                    }}
-                    disabled={isSigningIn} // ✅ MUI 기본 disabled도 함께 적용
-                    onClick={handleGoogleLogin}
-                >
-                    {isSigningIn ? "로그인 중..." : "Google 계정으로 로그인"}
-                </Button>
-                <Typography
-                    sx={{
-                        textAlign: "center",
-                        fontSize: 12,
-                        mt: 2,
-                    }}
-                >
-                    본 서비스는 @kakaohealthcare.com 계정만 사용 가능합니다.
-                </Typography>
+                    <Typography
+                        sx={{
+                            textAlign: "center",
+                            fontSize: 16,
+                            fontWeight: 700,
+                            fontFamily: `'Kakao', 'Pretendard', sans-serif`,
+                        }}
+                    >
+                        매일 5분 살펴보는 데일리 동향
+                    </Typography>
+                    <Typography
+                        sx={{
+                            textAlign: "center",
+                            fontSize: 40,
+                            lineHeight: "48px",
+                            fontWeight: 700,
+                            fontFamily: `'Kakao', 'Pretendard', sans-serif`,
+                            mb: 3,
+                            "& span": {
+                                fontWeight: 400,
+                            },
+                        }}
+                    >
+                        KHC <span>INSIGHT</span>
+                    </Typography>
+                    <Button
+                        fullWidth
+                        variant="outlined"
+                        color="secondary"
+                        startIcon={
+                            <Box
+                                sx={{
+                                    width: 24,
+                                    height: 24,
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                }}
+                            >
+                                <Image
+                                    src="https://developers.google.com/identity/images/g-logo.png"
+                                    alt="Google logo"
+                                    width={18}
+                                    height={18}
+                                />
+                            </Box>
+                        }
+                        sx={{
+                            bgcolor: "#ffffff",
+                            pointerEvents: isSigningIn ? "none" : "auto",
+                            opacity: isSigningIn ? 0.6 : 1,
+                        }}
+                        disabled={isSigningIn}
+                        onClick={handleGoogleLogin}
+                    >
+                        {isSigningIn ? "로그인 중..." : "Google 계정으로 로그인"}
+                    </Button>
+                    <Typography
+                        sx={{
+                            textAlign: "center",
+                            fontSize: 12,
+                            mt: 2,
+                        }}
+                    >
+                        본 서비스는 @kakaohealthcare.com 계정만 사용 가능합니다.
+                    </Typography>
+                </Box>
             </Box>
-        </Box>
+        </InAppGuard>
     );
 }

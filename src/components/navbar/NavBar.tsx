@@ -52,6 +52,7 @@ export default function NavBar() {
                 borderRight: 'none',
                 borderBottom: `none`,
                 borderTop: `1px solid ${grey[300]}`,
+                width: '100%',
             },
         }}>
             <Box sx={{

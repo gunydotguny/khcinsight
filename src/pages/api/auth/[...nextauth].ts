@@ -1,34 +1,49 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
+console.log("🔧 NEXTAUTH_URL (server start):", process.env.NEXTAUTH_URL);
+
 export const authOptions: any = {
-    providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID!,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-        }),
-    ],
-    callbacks: {
-        async signIn({ user }: { user: any }) {
-            // ✅ kakaohealthcare.com 도메인만 허용
-            if (user.email && user.email.endsWith("@kakaohealthcare.com")) {
-                return true;
-            }
-            return false;
+  debug: true, // 🔍 OAuth 과정 전체 로그 표시
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+          prompt: "select_account",
+          access_type: "offline",
+          response_type: "code",
         },
-        async session({ session, token }: { session: any, token: any }) {
-            // 세션에 이메일 저장
-            session.user.email = token.email;
-            return session;
-        },
+      },
+    }),
+  ],
+  callbacks: {
+    async signIn({ user }: any) {
+      console.log("✅ 로그인 허용:", user.email);
+      return true;
     },
-    session: {
-        strategy: "jwt",
-        maxAge: 60 * 60 * 24 * 7, // 7일 유지
+    async session({ session, token }: any) {
+      session.user.email = token.email;
+      return session;
     },
-    pages: {
-        signIn: "/auth/login", // 커스텀 로그인 페이지 가능
-    },
+  },
+  session: {
+    strategy: "jwt",
+    maxAge: 60 * 60 * 24 * 7,
+  },
+  pages: {
+    signIn: "/auth/login",
+  },
+  // ✅ 여기서 환경변수 기반으로 강제 redirect 설정
+  // NextAuth가 OAuth redirect_uri를 생성할 때 이 값을 절대 기준으로 삼습니다.
+  basePath: "/api/auth",
+  // ✅ 이게 핵심: NextAuth에 “정확한 origin”을 직접 주입
+  // (process.env.NEXTAUTH_URL이 잘 안 먹을 때 명시적으로 고정)
+  trustHost: true,
 };
 
-export default NextAuth(authOptions);
+export default async function auth(req: any, res: any) {
+  console.log("🔍 [NextAuth Init] URL Origin =", process.env.NEXTAUTH_URL);
+  return await NextAuth(req, res, authOptions);
+}
