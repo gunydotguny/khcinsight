@@ -5,7 +5,16 @@ import { TREND_CATEGORY_LABEL_MAP } from "@/src/constants/categories";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const { q = "", category, supply, demand, sort = "latest", page = "1", pageSize = "20" } = req.query;
+    const {
+      q = "",
+      category,
+      supply,
+      demand,
+      sort = "latest",
+      page = "1",
+      pageSize = "20",
+    } = req.query;
+
     const filePath = path.join(process.cwd(), "data/latest.json");
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ error: "data/latest.json not found" });
@@ -18,20 +27,38 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const categoryList = Array.isArray(category)
       ? category
       : typeof category === "string" && category.length > 0
-        ? category.split(",")
-        : [];
+      ? category.split(",")
+      : [];
 
     const supplyList = Array.isArray(supply)
       ? supply
       : typeof supply === "string" && supply.length > 0
-        ? supply.split(",")
-        : [];
+      ? supply.split(",")
+      : [];
 
     const demandList = Array.isArray(demand)
       ? demand
       : typeof demand === "string" && demand.length > 0
-        ? demand.split(",")
-        : [];
+      ? demand.split(",")
+      : [];
+
+    // ✅ 날짜 파싱 함수 (한글 포맷 대응)
+    const parseDate = (str: string): number => {
+      if (!str) return 0;
+
+      // ISO 포맷일 경우
+      const iso = Date.parse(str);
+      if (!isNaN(iso)) return iso;
+
+      // "2025년 10월 14일" 또는 "2025.10.14" 포맷 대응
+      const match = str.match(/(\d{4})[^\d]+(\d{1,2})[^\d]+(\d{1,2})/);
+      if (match) {
+        const [, y, m, d] = match;
+        return new Date(`${y}-${m}-${d}`).getTime();
+      }
+
+      return 0; // 파싱 실패 시 0 리턴
+    };
 
     // ✅ 필터링 로직
     const filtered = data.filter((item: any) => {
@@ -69,11 +96,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     });
 
     // ✅ 정렬 (post_date 기준)
-    filtered.sort((a: any, b: any) =>
-      sort === "oldest"
-        ? a.post_date?.localeCompare(b.post_date || "") ?? 0
-        : b.post_date?.localeCompare(a.post_date || "") ?? 0
-    );
+    filtered.sort((a: any, b: any) => {
+      const dateA = parseDate(a.post_date);
+      const dateB = parseDate(b.post_date);
+      if (!dateA && !dateB) return 0;
+      return sort === "oldest" ? dateA - dateB : dateB - dateA;
+    });
 
     // ✅ 페이지네이션
     const pageNum = parseInt(page as string);
@@ -81,6 +109,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const start = (pageNum - 1) * pageSizeNum;
     const results = filtered.slice(start, start + pageSizeNum);
 
+    // ✅ 응답
     return res.status(200).json({
       total: filtered.length,
       page: pageNum,

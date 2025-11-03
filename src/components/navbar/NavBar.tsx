@@ -52,7 +52,6 @@ export default function NavBar() {
                 borderRight: 'none',
                 borderBottom: `none`,
                 borderTop: `1px solid ${grey[300]}`,
-                width: '100%',
             },
         }}>
             <Box sx={{
@@ -65,6 +64,7 @@ export default function NavBar() {
                     minWidth: 'initial',
                     maxWidth: 'initial',
                     mx: "initial",
+                    width: '100%'
                 },
             }}>
                 <Box sx={{
@@ -141,6 +141,9 @@ export default function NavBar() {
                             display: 'flex',
                             justifyContent: 'center',
                             mx: -2,
+                            '@media (max-width: 768px)': {
+                                mx: 0
+                            }
                         }}>
                             {PAGES.map((item, index) => {
                                 return <NavBarItem key={index} {...item} />

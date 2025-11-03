@@ -10,11 +10,12 @@ export function TrendCategoryItem({ item, focused, onClick }: { item: TrendCateg
     return <ButtonBase
         onClick={onClick}
         sx={{
-            px: 1.5,
+            px: 2,
             py: 0.5,
             borderRadius: 20,
             bgcolor: amber[500],
             opacity: focused ? 1 : 0.2,
+            height: '32px',
         }}>
         <Typography
             sx={{

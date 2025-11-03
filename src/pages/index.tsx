@@ -6,10 +6,11 @@ export default function Index() {
 
 export async function getServerSideProps(context: any) {
   const session = await getSession(context);
-  return {
-    redirect: {
-      destination: session ? "/home" : "/auth/login",
-      permanent: false,
-    },
-  };
+  return { props: {} };
+  // return {
+  //   redirect: {
+  //     destination: session ? "/home" : "/auth/login",
+  //     permanent: false,
+  //   },
+  // };
 }

@@ -73,7 +73,7 @@ export default function TrendFilterSection({
                         },
                     }}
                 >
-                    <Typography sx={{ fontSize: 15, fontWeight: 700, color: grey[700] }}>
+                    <Typography sx={{ fontSize: 15, fontWeight: 700, color: grey[900] }}>
                         수요자
                     </Typography>
                 </AccordionSummary>
@@ -137,7 +137,7 @@ export default function TrendFilterSection({
                         },
                     }}
                 >
-                    <Typography sx={{ fontSize: 15, fontWeight: 700, color: grey[700] }}>
+                    <Typography sx={{ fontSize: 15, fontWeight: 700, color: grey[900] }}>
                         공급자
                     </Typography>
                 </AccordionSummary>

@@ -1,4 +1,6 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import url("https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css");
+
 
 @font-face {
   font-family: "LINESeedKR";
@@ -33,7 +35,7 @@
   src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -41,7 +43,7 @@
   src: url('/fonts/Pretendard-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -49,7 +51,7 @@
   src: url('/fonts/Pretendard-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -57,7 +59,7 @@
   src: url('/fonts/Pretendard-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -66,7 +68,7 @@
   font-weight: 400;
   font-style: normal;
   font-display: block;
-  /* ✅ swap 대신 block → 블링크 방지 */
+  /* ✅ block 대신 block → 블링크 방지 */
 }
 
 @font-face {
@@ -75,7 +77,7 @@
   font-weight: 500;
   font-style: normal;
   font-display: block;
-  /* ✅ swap 대신 block → 블링크 방지 */
+  /* ✅ block 대신 block → 블링크 방지 */
 }
 
 @font-face {
@@ -92,7 +94,7 @@
   font-weight: 300;
   font-style: normal;
   font-display: block;
-  /* ✅ swap 대신 block → 블링크 방지 */
+  /* ✅ block 대신 block → 블링크 방지 */
 }
 
 @font-face {
@@ -101,7 +103,7 @@
   font-weight: 400;
   font-style: normal;
   font-display: block;
-  /* ✅ swap 대신 block → 블링크 방지 */
+  /* ✅ block 대신 block → 블링크 방지 */
 }
 
 @font-face {
@@ -118,7 +120,7 @@
   font-weight: 400;
   font-style: normal;
   font-display: block;
-  /* ✅ swap 대신 block → 블링크 방지 */
+  /* ✅ block 대신 block → 블링크 방지 */
 }
 
 @font-face {
@@ -127,7 +129,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: block;
-  /* ✅ swap 대신 block → 블링크 방지 */
+  /* ✅ block 대신 block → 블링크 방지 */
 }
 
 @font-face {
@@ -148,7 +150,7 @@
        url('/fonts/NotoSansKR-Thin.otf') format('opentype');
   font-weight: 100;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -158,7 +160,7 @@
        url('/fonts/NotoSansKR-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -168,7 +170,7 @@
        url('/fonts/NotoSansKR-DemiLight.otf') format('opentype');
   font-weight: 350;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -178,7 +180,7 @@
        url('/fonts/NotoSansKR-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -188,7 +190,7 @@
        url('/fonts/NotoSansKR-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -198,7 +200,7 @@
        url('/fonts/NotoSansKR-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -208,7 +210,7 @@
        url('/fonts/NotoSansKR-Black.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 /* 

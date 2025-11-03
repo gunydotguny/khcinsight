@@ -341,7 +341,7 @@ const reset = css`
   }
   html,
   body {
-    font-family: "LINESeedKR",NanumGothic,"나눔고딕","Nanum Gothic","맑은 고딕","Malgun Gothic",Dotum,
+    font-family: "Wanted Sans Variable",NanumGothic,"나눔고딕","Nanum Gothic","맑은 고딕","Malgun Gothic",Dotum,
     color: #000;
     height: 100%;
     height: 100vh;
