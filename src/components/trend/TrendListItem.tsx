@@ -110,7 +110,7 @@ export default function TrendListItem({
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",
-            // wordBreak: 'break-all'
+            wordBreak: 'break-all'
         }}>
             {item.news_title}
         </Typography>
