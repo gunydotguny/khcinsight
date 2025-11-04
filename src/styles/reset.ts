@@ -64,14 +64,14 @@ html {
 body {
   width: 100%;
   -webkit-overflow-scrolling: touch;
-  background-color: #ffffff; 
+  background-color: #f5f5f5; 
   font-size: 14px;
   line-height: 140%;
   font-weight: 400;
 }
 
 * {
-  letter-spacing: -0.4px !important;
+  letter-spacing: 0px !important;
 }
 
 // body,code,html,kbd,pre,samp {

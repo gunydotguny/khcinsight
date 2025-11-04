@@ -36,7 +36,6 @@ export default function TrendFilterSection({
         <Box
             sx={{
                 width: 192,
-                bgcolor: "#fff",
                 position: "sticky",
                 top: 80,
                 alignSelf: "flex-start",
@@ -47,10 +46,10 @@ export default function TrendFilterSection({
                     textAlign: 'center',
                     mr: 1,
                 },
-                  "@media (max-width: 768px)": {
+                "@media (max-width: 768px)": {
                     width: '100%',
-                    px: 2,
-                  }
+                    px: 3,
+                }
             }}
         >
             {/* 수요자 아코디언 */}
@@ -60,6 +59,7 @@ export default function TrendFilterSection({
                 sx={{
                     boxShadow: "none",
                     "&::before": { display: "none" },
+                    bgcolor: 'transparent'
                 }}
             >
                 <AccordionSummary
@@ -124,6 +124,7 @@ export default function TrendFilterSection({
                 sx={{
                     boxShadow: "none",
                     "&::before": { display: "none" },
+                      bgcolor: 'transparent'
                 }}
             >
                 <AccordionSummary

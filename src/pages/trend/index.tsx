@@ -129,14 +129,14 @@ export default function TrendPage() {
                         display: "flex",
                         py: 5,
                         px: 10,
-                        bgcolor: "#ffffff",
                         "@media (max-width: 768px)": {
                             flexDirection: "column",
-                            py: 2,
-                            px: 2,
+                            py: 3,
+                            px: 3,
                             position: "sticky",
-                            top: -48,
+                            top: -56,
                             zIndex: 9999,
+                            bgcolor: "#ffffff",
                         },
                     }}
                 >
@@ -156,7 +156,7 @@ export default function TrendPage() {
                     <Box
                         sx={{
                             position: "relative",
-                            "@media (max-width: 768px)": { mx: -2, pt: 2 },
+                            "@media (max-width: 768px)": { mx: -3, pt: 3 },
                         }}
                     >
                         <Box sx={{ overflowX: "scroll" }}>
@@ -168,7 +168,7 @@ export default function TrendPage() {
                                     px: 5,
                                     flexWrap: "nowrap",
                                     "& > *": { flex: "0 0 auto" },
-                                    "@media (max-width: 768px)": { px: 2 },
+                                    "@media (max-width: 768px)": { px: 3 },
                                 }}
                             >
                                 <ButtonBase
@@ -233,8 +233,8 @@ export default function TrendPage() {
                             "@media (max-width: 768px)": {
                                 display: "flex",
                                 position: "absolute",
-                                top: 16,
-                                right: 16,
+                                top: 24,
+                                right: 24,
                                 zIndex: 999,
                             },
                         }}
@@ -277,10 +277,10 @@ export default function TrendPage() {
                                 gap: 1,
                                 "@media (max-width: 768px)": {
                                     position: "sticky",
-                                    top: 64,
+                                    top: 80,
                                     zIndex: 999,
                                     bgcolor: "#ffffff",
-                                    px: 2,
+                                    px: 3,
                                     pb: 2,
                                     borderBottom: `1px solid ${grey[300]}`,
                                 },
@@ -343,8 +343,14 @@ export default function TrendPage() {
 
                         {/* 리스트 */}
                         <Box sx={{
-                            width: "100%", display: "grid", gap: 2, pb: 4,
-                            "@media (max-width: 768px)": { gap: 0 },
+                            width: "100%", display: "grid",
+                            gridTemplateColumns: `repeat(2, 1fr)`,
+                            gap: 2, pb: 4,
+                            "@media (max-width: 768px)": {
+                                py: 2,
+                                gridTemplateColumns: `repeat(1, 1fr)`,
+                                gap: 0,
+                            },
                         }}>
                             {trendList.length > 0 &&
                                 trendList.map((item, index) => (

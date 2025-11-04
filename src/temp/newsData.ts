@@ -49,7 +49,7 @@ export const newsData = [
     "domain": "만성질환·예방의료",
     "entity": ["카카오헬스케어"],
     "region": "국내",
-    "category": "제품/서비스 출시",
+    "category": "서비스 출시",
     "service_form": "모바일 앱+AI 예측",
     "summary": "카카오헬스케어가 병원 밖에서도 데이터를 기반으로 질병 예방과 조기 개입을 지원하는 헬스 루프 서비스를 추진한다."
   },

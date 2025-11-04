@@ -1,10 +1,8 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-console.log("🔧 NEXTAUTH_URL (server start):", process.env.NEXTAUTH_URL);
-
 export const authOptions: any = {
-  debug: true, // 🔍 OAuth 과정 전체 로그 표시
+  debug: true,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -20,8 +18,18 @@ export const authOptions: any = {
   ],
   callbacks: {
     async signIn({ user }: any) {
-      console.log("✅ 로그인 허용:", user.email);
-      return true;
+      const email = user.email ?? "";
+      console.log("🧩 로그인 시도:", email);
+
+      // ✅ 카카오헬스케어 도메인만 허용
+      if (email.endsWith("@kakaohealthcare.com")) {
+        console.log("✅ 로그인 허용:", email);
+        return true;
+      } else {
+        console.warn("🚫 로그인 거부:", email);
+        // 🚨 에러 페이지로 리디렉트
+        return "/auth/error?reason=unauthorized_domain";
+      }
     },
     async session({ session, token }: any) {
       session.user.email = token.email;
@@ -34,16 +42,12 @@ export const authOptions: any = {
   },
   pages: {
     signIn: "/auth/login",
+    error: "/auth/error",
   },
-  // ✅ 여기서 환경변수 기반으로 강제 redirect 설정
-  // NextAuth가 OAuth redirect_uri를 생성할 때 이 값을 절대 기준으로 삼습니다.
   basePath: "/api/auth",
-  // ✅ 이게 핵심: NextAuth에 “정확한 origin”을 직접 주입
-  // (process.env.NEXTAUTH_URL이 잘 안 먹을 때 명시적으로 고정)
   trustHost: true,
 };
 
 export default async function auth(req: any, res: any) {
-  console.log("🔍 [NextAuth Init] URL Origin =", process.env.NEXTAUTH_URL);
   return await NextAuth(req, res, authOptions);
 }

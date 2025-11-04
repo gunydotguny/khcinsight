@@ -25,7 +25,7 @@ export default function NavBar() {
         console.log("로그아웃 실행");
         signOut({ callbackUrl: "/auth/login" })
     };
-    if (router.pathname === '/' || router.pathname === '/auth/login') return null;
+    if (router.pathname === '/' || router.pathname.startsWith('/auth')) return null;
     return <>
         {/* 상단네비 / 하단네비 */}
         <Box sx={{

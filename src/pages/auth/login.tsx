@@ -8,13 +8,11 @@ import InAppGuard from "@/src/components/common/InAppGuard";
 export default function LoginPage() {
     const router = useRouter();
     const [isSigningIn, setIsSigningIn] = useState(false);
-    const searchParams = new URLSearchParams(router.asPath.split("?")[1]);
-    const callbackUrl = searchParams.get("callbackUrl") || "/";
 
     useEffect(() => {
         // 이미 로그인된 사용자는 홈으로 리다이렉트
         getSession().then((session) => {
-            if (session) router.replace("/");
+            if (session) router.replace("/home");
         });
     }, [router]);
 
@@ -29,7 +27,6 @@ export default function LoginPage() {
         const isIOS = /iphone|ipad|ipod/i.test(ua);
 
         if (isInApp) {
-            // ✅ 인앱 브라우저 감지 시 안내 문구 표시
             alert(
                 "인앱 브라우저에서는 로그인이 원활하지 않습니다.\nSafari 또는 Chrome으로 다시 열어주세요."
             );
@@ -45,9 +42,10 @@ export default function LoginPage() {
             return;
         }
 
-        // ✅ 일반 브라우저 로그인
+        // ✅ 정상적인 구글 로그인 redirect (NextAuth에서 자동처리)
         signIn("google", { callbackUrl: "/home" });
     };
+
 
     return (
         <InAppGuard>

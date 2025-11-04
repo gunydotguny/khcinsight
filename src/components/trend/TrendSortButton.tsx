@@ -38,6 +38,7 @@ export default function TrendSortButton({
                     borderRadius: 0.5,
                     display: "flex",
                     alignItems: "center",
+                    bgcolor: '#ffffff'
                 }}
             >
                 <SwapVertIcon

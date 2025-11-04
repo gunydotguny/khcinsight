@@ -24,7 +24,7 @@ export type TrendCategoryItemProps = {
 export const TREND_CATEGORIES: TrendCategoryItemProps[] = [
     { key: "strategy", label: "전략", color: blue[100], textColor: blue[900], },
     { key: "business", label: "사업", color: indigo[100], textColor: indigo[900], },
-    { key: "product", label: "제품/서비스", color: green[100], textColor: green[900], },
+    { key: "product", label: "서비스", color: green[100], textColor: green[900], },
     { key: "research", label: "연구", color: teal[100], textColor: teal[900], },
     { key: "etc", label: "기타", color: grey[100], textColor: grey[900], },
 ];

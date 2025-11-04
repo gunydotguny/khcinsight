@@ -82,9 +82,8 @@ export function displayedAt(str: string | null, short?: boolean) {
   if (hours < 24) return `${Math.floor(hours)}시간 전`;
   const days = hours / 24;
   if (short) return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`
-  return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일${
-    short ? `` : ` ${date.getHours()}시 ${date.getMinutes()}분`
-  }`;
+  return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일${short ? `` : ` ${date.getHours()}시 ${date.getMinutes()}분`
+    }`;
   // if (days < 7) return `${Math.floor(days)}일 전`;
   // const weeks = days / 7;
   // if (weeks < 5) return `${Math.floor(weeks)}주 전`;
@@ -118,4 +117,33 @@ export function setKoNumber(number: number) {
     arrCount--;
   }
   return changeWon.slice(0, -1);
+}
+
+
+export function formatRelativeTime(raw: string): string {
+  // 1️⃣ 한국어/한자 제거 (년, 월, 일, 요일)
+  const cleaned = raw
+    .replace(/년|월|일|\(.*\)/g, "")
+    .replace(/ /g, "-")
+    .replace("--", "-") // 중복 하이픈 방지
+    .trim();
+
+  // 2️⃣ JS가 인식할 수 있는 형태로 (YYYY-MM-DD HH:mm)
+  const [datePart, timePart] = cleaned.split("-");
+  // 예시: "2025-10-29-11:10" → "2025-10-29 11:10"
+  const dateStr = cleaned.replace(/-/g, " ").replace("  ", " ");
+  const date = new Date(dateStr);
+
+  if (isNaN(date.getTime())) return "-"; // 안전장치
+
+  const now = new Date();
+  const diff = (now.getTime() - date.getTime()) / 1000; // 초 단위
+
+  if (diff < 60) return "방금 전";
+  if (diff < 3600) return `${Math.floor(diff / 60)}분 전`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}시간 전`;
+  if (diff < 2592000) return `${Math.floor(diff / 86400)}일 전`;
+  if (diff < 31104000) return `${Math.floor(diff / 2592000)}개월 전`;
+
+  return `${Math.floor(diff / 31104000)}년 전`;
 }

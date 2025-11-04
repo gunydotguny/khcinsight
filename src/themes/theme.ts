@@ -41,8 +41,9 @@ export const theme = createTheme({
     borderRadius: 8,
   },
   typography: {
-    fontFamily: `'Wanted Sans Variable', 'Noto Sans KR', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`,
+    // fontFamily: `'Wanted Sans Variable', 'Noto Sans KR', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`,
     // fontFamily: `'LINESeedKR', 'Noto Sans KR', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`,
+    fontFamily: `'Noto Sans KR', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`,
     // fontFamily: `'Kakao Unified','Kakao', 'Pretendard', sans-serif`,
     button: {
       textTransform: "none", // ✅ 버튼 대문자 방지
@@ -252,7 +253,7 @@ export const theme = createTheme({
           minWidth: 0,
           fontSize: 14,
           lineHeight: '20px',
-          letterSpacing: "-0.4px",
+          letterSpacing: "0px",
           whiteSpace: "nowrap",
           textTransform: "none",
           fontWeight: "700",
